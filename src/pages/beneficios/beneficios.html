@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar color="secondary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Benefícios Extras</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingText="Carregando...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let beneficity of items">
+    <ion-card-header>
+      <h3 class="title">{{ beneficity.NomeBeneficio }}</h3>
+      <ion-badge color="primary">{{ beneficity.ValorCobrado }}</ion-badge>
+    </ion-card-header>
+    <ion-card-content *ngIf="beneficity.Descricao">
+      {{ beneficity.Descricao }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

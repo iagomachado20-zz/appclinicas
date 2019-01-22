@@ -1,0 +1,22 @@
+<ion-content>
+    <header class="background-box">
+      <h1 class="title"><ion-icon name="pin"></ion-icon> Escolha sua localização</h1>
+    </header>
+    <div class="bottom" padding>
+      <ion-card>
+        <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label>Cidades</ion-label>
+                <ion-select [(ngModel)]="unitySelect" cancelText="Cancelar">
+                  <ion-option *ngFor="let unity of unitys" [value]="unity.EntidadeId">{{ unity.Cidade }}</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+            <button ion-button block (click)="choiceUnity()" [disabled]="!unitySelect">Selecionar</button>
+        </ion-card-content>
+      
+      </ion-card>
+        
+    </div>
+</ion-content>

@@ -1,0 +1,55 @@
+page-medicos, list-clinicas {
+    ion-card-header {
+        border-bottom: 1px solid #dcdada;
+        p {
+            opacity: 0.8;
+        }
+        .title {
+            color: #595e8e;
+            font-size: 1.6rem;
+            word-break: break-word;
+            white-space: pre-wrap;
+            width: 95%;
+        }
+    }
+    ion-label {
+        overflow: visible;
+    }
+    .toolbar-title {
+        font-size: 1.6rem !important;
+        width: 84%;
+    }
+    .title-area {
+        padding: 10px 15px;
+        background: #eaeef9;
+    }
+    .buttons {
+        display: flex;
+        margin-bottom: 15px !important;
+        flex-direction: column;
+        [ion-button] {
+            margin-bottom: 2px !important;
+        }
+    }
+    .sub {
+        font-size: 1.10rem;
+        margin-bottom: 5px;
+    }
+    p {
+        font-size: 1.2rem !important;
+    }
+    ion-card-content {
+        p {
+            font-size: 1.3rem !important;
+        }
+    }
+    ion-row {
+        background: #f9f9fd;
+    }
+    .card-header-md + .card-content-md, .card-md .item + .card-content-md {
+        padding-top: 13px;
+    }
+    .disabled {
+        opacity: 0.4;
+    }
+}

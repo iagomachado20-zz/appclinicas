@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Parceiros</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+    <ion-card-header class="secondary">
+      <h1 class="title">{{ parceiroData.Nome }}</h1>
+      <p><strong> {{ parceiroData.Site }}</strong></p>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p> 
+        <span *ngIf="parceiroData.Endereco">{{ parceiroData.Endereco }}, </span>
+        <span *ngIf="parceiroData.Cidade">{{ parceiroData.Cidade }}, </span> 
+        <span *ngIf="parceiroData.UF">{{ parceiroData.UF }}, </span>
+        <span *ngIf="parceiroData.Bairro">{{ parceiroData.Bairro }}, </span> 
+        <span *ngIf="parceiroData.Numero">{{ parceiroData.Numero }}, </span>
+        <span *ngIf="parceiroData.Complemento">{{ parceiroData.Complemento }}, </span>
+        <span *ngIf="parceiroData.CEP">{{ parceiroData.CEP }} </span>
+      </p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col col-4 text-center>
+        <button [ngClass]="{'disabled': !parceiroData.TelefoneSede}" ion-button icon-start clear (click)="callToNumber(parceiroData.TelefoneSede)">
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <button class="whatsapp" [ngClass]="{'disabled': !parceiroData.WhatsApp}" ion-button icon-start clear (click)="openWhats(parceiroData.WhatsApp)">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <button [ngClass]="{'disabled': !parceiroData.Email}" ion-button icon-start clear (click)="OpenMail(parceiroData.Email)">
+          <ion-icon name="mail"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+  <h3 class="title-area">Benefícios</h3>
+  <div>
+    <ion-card *ngFor="let beneficity of items">
+      <ion-card-header>
+        <h3 class="title">{{ beneficity.Titulo }}</h3>
+      </ion-card-header>
+      <ion-card-content *ngIf="beneficity.Chamada">
+        {{ beneficity.Chamada }}
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <p text-center *ngIf="items.length == 0">Nenhum benefício encontrado.</p>
+</ion-content>

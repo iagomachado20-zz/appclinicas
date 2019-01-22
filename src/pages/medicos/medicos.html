@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ titlePage | capitalize }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingText="Carregando...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let doctor of items">
+
+    <ion-card-header class="secondary">
+      <h1 class="title">{{ doctor.Nome }}</h1>
+      <p *ngIf="doctor.CRM"><strong><ion-icon name="document"></ion-icon> {{ doctor.CRM }}</strong></p>
+    </ion-card-header>
+  
+    <ion-card-content *ngIf="doctor.Clinicas.length === 0">
+      <p> 
+        <span *ngIf="doctor.Endereco">{{ doctor.Endereco }}, </span>
+        <span *ngIf="doctor.Cidade">{{ doctor.Cidade }}, </span> 
+        <span *ngIf="doctor.UF">{{ doctor.UF }}, </span>
+        <span *ngIf="doctor.Bairro">{{ doctor.Bairro }}, </span> 
+        <span *ngIf="doctor.Numero">{{ doctor.Numero }}, </span>
+        <span *ngIf="doctor.Complemento">{{ doctor.Complemento }}, </span>
+        <span *ngIf="doctor.CEP">{{ doctor.CEP }} </span>
+      </p>
+    </ion-card-content>
+    <ion-row *ngIf="doctor.Clinicas.length === 0">
+      <ion-col col-4 text-center>
+        <button [ngClass]="{'disabled': !doctor.Telefone}" ion-button icon-start clear (click)="callToNumber(doctor.Telefone)">
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <button [ngClass]="{'disabled': !doctor.Celular}" ion-button icon-start clear (click)="callToNumber(doctor.Celular)">
+          <ion-icon name="phone-portrait"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <button [ngClass]="{'disabled': !doctor.Email}" ion-button icon-start clear (click)="OpenMail(doctor.Email)">
+          <ion-icon name="mail"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-list *ngIf="doctor.Clinicas.length > 0">
+      <h3 class="title-area">Clínicas</h3>
+      <ion-item *ngFor="let clinica of doctor.Clinicas" text-wrap>
+        <div item-start wrap class="buttons">
+          <button [ngClass]="{'disabled': !clinica.Telefone}" ion-button item-start (click)="callToNumber(clinica.Telefone)">
+            <ion-icon name="call"></ion-icon>
+          </button>
+          <button [ngClass]="{'disabled': !clinica.Celular}" ion-button item-start (click)="callToNumber(clinica.Celular)">
+              <ion-icon name="phone-portrait"></ion-icon>
+          </button>
+          <button [ngClass]="{'disabled': !clinica.Email}" ion-button item-start (click)="OpenMail(clinica.Email)">
+            <ion-icon name="mail"></ion-icon>
+          </button>
+        </div>
+        <h3 class="sub">{{ clinica.Nome | capitalize }}</h3>
+        <p> 
+          <span *ngIf="clinica.Endereco">{{ clinica.Endereco }}, </span>
+          <span *ngIf="clinica.Cidade">{{ doctor.Cidade }}, </span> 
+          <span *ngIf="clinica.UF">{{ clinica.UF }}, </span>
+          <span *ngIf="clinica.Bairro">{{ clinica.Bairro }}, </span> 
+          <span *ngIf="clinica.Numero">{{ clinica.Numero }}, </span>
+          <span *ngIf="clinica.Complemento">{{ clinica.Complemento }}, </span>
+          <span *ngIf="clinica.CEP">{{ clinica.CEP }} </span>
+        </p>
+      </ion-item>
+    </ion-list>
+  
+  </ion-card>
+</ion-content>

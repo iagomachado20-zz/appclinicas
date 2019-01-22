@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Clínicas de Atendimento</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="backPage()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let item of items">
+
+    <ion-card-header class="secondary">
+      <h1 class="title">{{ item.Nome }}</h1>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p><strong>Endereço: </strong> {{ item.Endereco }}</p>
+      <p><strong>Cidade: </strong> {{ item.Cidade }} <strong>UF: </strong> {{ item.UF }}</p>
+      <p><strong>Bairro: </strong> {{ item.Bairro}}, N°: {{ item.Numero}}, {{ item.Complemento}}</p>
+      <p><strong>CEP: </strong> {{ item.CEP}}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col col-12 text-center>
+        <button [ngClass]="{'disabled': !item.Telefone}" ion-button icon-start clear (click)="callToNumber(item.Telefone)">
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+</ion-content>

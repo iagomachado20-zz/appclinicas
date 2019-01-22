@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar color="secondary">
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Dúvidas Frequentes</ion-title>
+    </ion-navbar>
+</ion-header>
+  
+<ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content refreshingText="Carregando...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+        <button detail-none (click)="expandItem(item)" ion-item *ngFor="let item of items">
+            <h2>{{ item.Pergunta }}</h2>
+            <acordion [expanded]="item.open">
+                {{ item.Resposta }}
+            </acordion>
+        </button>
+    </ion-list>
+</ion-content>
+  

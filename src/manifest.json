@@ -1,0 +1,13 @@
+{
+  "name": "Premium App",
+  "short_name": "Premium",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo-brand.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#4c4f8a",
+  "theme_color": "#4c4f8a"
+}

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ titlePage }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let exame of items">
+
+    <ion-card-header class="secondary">
+      <h1 class="title">{{ exame.Nome | capitalize }}</h1>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p> 
+        <span *ngIf="exame.Endereco">{{ exame.Endereco }}, </span>
+        <span *ngIf="exame.Cidade">{{ exame.Cidade }}, </span> 
+        <span *ngIf="exame.UF">{{ exame.UF }}, </span>
+        <span *ngIf="exame.Bairro">{{ exame.Bairro }}, </span> 
+        <span *ngIf="exame.Numero">{{ exame.Numero }}, </span>
+        <span *ngIf="exame.Complemento">{{ exame.Complemento }}, </span>
+        <span *ngIf="exame.CEP">{{ exame.CEP }} </span>
+      </p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col col-4 text-center>
+        <button [ngClass]="{'disabled': !exame.Telefone}" ion-button icon-start clear (click)="callToNumber(exame.Telefone)">
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <button [ngClass]="{'disabled': !exame.Celular}" ion-button icon-start clear (click)="callToNumber(exame.Celular)">
+          <ion-icon name="phone-portrait"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <button [ngClass]="{'disabled': !exame.Email}" ion-button icon-start clear (click)="callMail(exame.Email)">
+          <ion-icon name="mail"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+</ion-content>

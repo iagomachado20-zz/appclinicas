@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title text-center>
+      <img src="assets/imgs/logo.png" class="brand">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content class="card-background-page" padding>
+    <div margin-top>
+      <header>
+        <h4>Bem vindo a  <br> Premium Clube de Benefícios</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ut natus soluta, nisi tenetur similique.</p>
+      </header>
+      <ion-row padding-top>
+        <ion-col col-6>
+            <ion-card [navPush]="consultaPage">
+              <img src="assets/imgs/consultasbg.jpg"/>
+              <div class="card-title">Consultas Médicas</div>
+            </ion-card>
+        </ion-col>
+        <ion-col col-6>
+            <ion-card [navPush]="examePage">
+              <img src="assets/imgs/examesbg.jpg"/>
+              <div class="card-title">Exames</div>
+            </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-card [navPush]="beneficioPage">
+            <img src="assets/imgs/beneficiosbg.jpg"/>
+            <div class="card-title">Benefícios Extras</div>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-card [navPush]="parceiroPage">
+            <img src="assets/imgs/parceirosbg.jpg"/>
+            <div class="card-title mini">Parceiros de Descontos e Vantagens</div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+
+</ion-content>
+
+<div class="nav-bottom">
+  <button ion-button class="link"> <ion-icon name="custom-mynewicon"></ion-icon> </button>
+  <button ion-button class="link" [navPush]="tab2"> <ion-icon name="information-circle"></ion-icon> </button>
+  <button ion-button  class="link" [navPush]="tab3"> <ion-icon name="pin"></ion-icon> </button>
+  <button ion-button  class="link" [navPush]="tab4"> <ion-icon name="help"></ion-icon> </button>
+</div>

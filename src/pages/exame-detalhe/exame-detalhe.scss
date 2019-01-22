@@ -1,0 +1,31 @@
+page-exame-detalhe {
+    ion-card-header {
+        border-bottom: 1px solid #dcdada;
+        white-space: normal;
+        p {
+            opacity: 0.8;
+        }
+        .title {
+            color: #595e8e;
+            font-size: 2rem;
+        }
+    }
+    .toolbar-title {
+        font-size: 1.6rem !important;
+        width: 84%;
+    }
+    ion-card-content {
+        p {
+            font-size: 1.3rem !important;
+        }
+    }
+    ion-row {
+        background: #f9f9fd;
+    }
+    .card-header-md + .card-content-md, .card-md .item + .card-content-md {
+        padding-top: 13px;
+    }
+    .disabled {
+        opacity: 0.4;
+    }
+}
