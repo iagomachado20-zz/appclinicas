@@ -7,6 +7,7 @@ import { BeneficiosPage } from '../beneficios/beneficios';
 import { ParceirosPage } from '../parceiros/parceiros';
 import { InformacoesPage } from '../informacoes/informacoes';
 import { ExamesPage } from '../exames/exames';
+import { ParceirosCategoriaPage } from '../parceiros/parceiros-categoria/parceiros-categoria';
 
 @Component({
   selector: 'page-home',
@@ -37,7 +38,7 @@ export class InitPage {
   tab3 = SelecioneLocalizacaoPage;
   consultaPage = ConsultasPage;
   beneficioPage = BeneficiosPage;
-  parceiroPage = ParceirosPage;
+  parceiroPage = ParceirosCategoriaPage;
   examePage = ExamesPage;
 
   constructor(public navCtrl: NavController) {

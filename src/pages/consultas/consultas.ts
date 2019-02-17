@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { CrudProvider } from '../../providers/crud/crud';
 import { UtilProvider } from '../../providers/util';
 import { MedicosPage } from '../medicos/medicos';
+import { LocalizacaoProvider } from '../../providers/localizacao/localizacao';
 
 @Component({
   selector: 'page-consultas',
@@ -17,7 +18,8 @@ export class ConsultasPage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public crudProvider: CrudProvider,
-    public util: UtilProvider
+    public util: UtilProvider,
+    public auth: LocalizacaoProvider
   ) {
 
     // If we navigated to this page, we will have an item available as a nav param
@@ -44,7 +46,9 @@ export class ConsultasPage {
   
     loading.present();
 
-    this.crudProvider.getData('/especialidades/todas')
+    const entityId = this.auth.getUnity;
+
+    this.crudProvider.getData('/especialidades/todas?entidadeId='+ entityId)
     .subscribe(res => {
       
       this.items = res['Data'];

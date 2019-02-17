@@ -16,6 +16,10 @@
   
     <ion-card-content>
       <p> 
+        <strong>{{ exame.Telefone }}</strong> 
+        <strong *ngIf="exame.Celular"> / {{ exame.Celular }}</strong> 
+      </p>
+      <p> 
         <span *ngIf="exame.Endereco">{{ exame.Endereco }}, </span>
         <span *ngIf="exame.Cidade">{{ exame.Cidade }}, </span> 
         <span *ngIf="exame.UF">{{ exame.UF }}, </span>

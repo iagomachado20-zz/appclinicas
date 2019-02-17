@@ -11,6 +11,8 @@ import { ParceiroDetalhePage } from './parceiro-detalhe/parceiro-detalhe';
 })
 export class ParceirosPage {
   selectedItem: any;
+  titlePage: string;
+  idParam: number;
   items: Array<{title: string, note: string, icon: string}>;
 
   constructor(
@@ -24,6 +26,8 @@ export class ParceirosPage {
 
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
+    this.titlePage = navParams.get('categoria');
+    this.idParam = navParams.get('id');
     this.items = [];
 
     this.loadingData();
@@ -47,7 +51,7 @@ export class ParceirosPage {
 
     const idEntity = this.locationProvider.getUnity;
 
-    this.crudProvider.getData(`/parceiros/todos?entidadeId=${idEntity}`)
+    this.crudProvider.getData(`/parceiros/todos?entidadeId=${idEntity}&categoriaid=${this.idParam}`)
     .subscribe(res => {
       
       this.items = res['Data'];

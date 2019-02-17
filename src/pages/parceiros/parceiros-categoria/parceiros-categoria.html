@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ titlePage }}</ion-title>
+    <ion-title>Categorias</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,9 +14,8 @@
   </ion-refresher>
   <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      {{item.Nome}}
+      {{ item.Nome | capitalize }}
       <ion-icon [name]="'ios-arrow-forward'" item-end></ion-icon>
     </button>
   </ion-list>
-  <p *ngIf="items.length === 0" text-center>Nenhum parceiro encontrado.</p>
 </ion-content>

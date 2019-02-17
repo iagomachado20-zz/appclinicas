@@ -16,6 +16,7 @@ import { NetWorkProvider } from '../providers/crud/network';
 import { UtilProvider } from '../providers/util';
 import { DuvidasPage } from '../pages/duvidas/duvidas';
 import { ExamesPage } from '../pages/exames/exames';
+import { ParceirosCategoriaPage } from '../pages/parceiros/parceiros-categoria/parceiros-categoria';
 
 @Component({
   templateUrl: 'app.html'
@@ -45,7 +46,7 @@ export class MyApp {
       { title: 'Consultas Médicas', icon: 'medkit', component: ConsultasPage },
       { title: 'Exames', icon: 'pulse', component: ExamesPage },
       { title: 'Benefícios Extras', icon:'thumbs-up', component: BeneficiosPage },
-      { title: 'Parceiros de Descontos', icon: 'swap', component: ParceirosPage },  
+      { title: 'Parceiros de Descontos', icon: 'swap', component: ParceirosCategoriaPage },  
       { title: 'Informações', icon: 'information-circle', component: InformacoesPage },
       { title: 'Dúvidas Frequentes', icon: 'help', component: DuvidasPage },
       { title: 'SysproCard', icon: 'custom-mynewicon', component: InitPage },

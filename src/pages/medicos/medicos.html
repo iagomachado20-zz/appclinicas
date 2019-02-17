@@ -21,6 +21,10 @@
   
     <ion-card-content *ngIf="doctor.Clinicas.length === 0">
       <p> 
+        <strong *ngIf="doctor.Telefone">{{ doctor.Telefone }} / </strong> 
+        <strong *ngIf="doctor.Celular">  {{ doctor.Celular }}</strong> 
+      </p>
+      <p> 
         <span *ngIf="doctor.Endereco">{{ doctor.Endereco }}, </span>
         <span *ngIf="doctor.Cidade">{{ doctor.Cidade }}, </span> 
         <span *ngIf="doctor.UF">{{ doctor.UF }}, </span>
@@ -62,6 +66,7 @@
           </button>
         </div>
         <h3 class="sub">{{ clinica.Nome | capitalize }}</h3>
+        <p> <strong>{{ clinica.Telefone }}</strong> <strong>{{ clinica.Celular }}</strong> </p>
         <p> 
           <span *ngIf="clinica.Endereco">{{ clinica.Endereco }}, </span>
           <span *ngIf="clinica.Cidade">{{ doctor.Cidade }}, </span> 

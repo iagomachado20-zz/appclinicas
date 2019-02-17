@@ -30,6 +30,7 @@ import { CacheModule } from 'ionic-cache';
 import { Network } from '@ionic-native/network';
 import { NetWorkProvider } from '../providers/crud/network';
 import { PipesModule } from '../pipes/pipes.module';
+import { ParceirosCategoriaPage } from '../pages/parceiros/parceiros-categoria/parceiros-categoria';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { PipesModule } from '../pipes/pipes.module';
     ConsultasPage,
     ParceirosPage,
     ParceiroDetalhePage,
+    ParceirosCategoriaPage,
     ExamesPage,
     InitPage,
     ExameDetalhePage
@@ -71,7 +73,8 @@ import { PipesModule } from '../pipes/pipes.module';
     ParceirosPage,
     ParceiroDetalhePage,
     ExamesPage,
-    ExameDetalhePage
+    ExameDetalhePage,
+    ParceirosCategoriaPage
   ],
   providers: [
     StatusBar,

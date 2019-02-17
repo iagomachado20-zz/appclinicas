@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
-import { CrudProvider } from '../../providers/crud/crud';
-import { UtilProvider } from '../../providers/util';
-import { ExameDetalhePage } from '../exame-detalhe/exame-detalhe';
-import { LocalizacaoProvider } from '../../providers/localizacao/localizacao';
+import { CrudProvider } from '../../../providers/crud/crud';
+import { UtilProvider } from '../../../providers/util';
+import { LocalizacaoProvider } from '../../../providers/localizacao/localizacao';
+import { ParceiroDetalhePage } from '../parceiro-detalhe/parceiro-detalhe';
+import { ParceirosPage } from '../parceiros';
 
 @Component({
-  selector: 'page-exames',
-  templateUrl: 'exames.html'
+  selector: 'page-categorias-parceiros',
+  templateUrl: 'parceiros-categoria.html'
 })
-export class ExamesPage {
+export class ParceirosCategoriaPage {
+
+
   selectedItem: any;
   items: Array<{title: string, note: string, icon: string}>;
 
@@ -19,7 +22,7 @@ export class ExamesPage {
     public loadingCtrl: LoadingController,
     public crudProvider: CrudProvider,
     public util: UtilProvider,
-    public location: LocalizacaoProvider
+    public auth: LocalizacaoProvider
   ) {
 
     // If we navigated to this page, we will have an item available as a nav param
@@ -32,9 +35,9 @@ export class ExamesPage {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ExameDetalhePage, {
+    this.navCtrl.push(ParceirosPage, {
       id: item['Id'],
-      title: item['Categoria']
+      categoria: item['Nome']
     });
   }
 
@@ -46,9 +49,9 @@ export class ExamesPage {
   
     loading.present();
 
-    const entityId = this.location.getUnity;
+    const entityId = this.auth.getUnity;
 
-    this.crudProvider.getData(`/exames/categorias?entidadeid=${entityId}`)
+    this.crudProvider.getData('/parceiros/categorias?entidadeId='+ entityId)
     .subscribe(res => {
       
       this.items = res['Data'];

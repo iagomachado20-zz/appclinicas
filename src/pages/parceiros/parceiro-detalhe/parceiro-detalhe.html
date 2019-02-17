@@ -17,6 +17,10 @@
   
     <ion-card-content>
       <p> 
+        <strong>{{ parceiroData.TelefoneSede }}</strong> 
+        <strong *ngIf="parceiroData.WhatsApp"> / {{ parceiroData.WhatsApp }}</strong> 
+      </p>
+      <p> 
         <span *ngIf="parceiroData.Endereco">{{ parceiroData.Endereco }}, </span>
         <span *ngIf="parceiroData.Cidade">{{ parceiroData.Cidade }}, </span> 
         <span *ngIf="parceiroData.UF">{{ parceiroData.UF }}, </span>
