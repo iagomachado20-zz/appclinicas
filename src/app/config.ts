@@ -1,1 +1,1 @@
-export const BASE_API = 'http://premiumabm.org.br/api';
+export const BASE_API = 'http://apipremium.azurewebsites.net';
